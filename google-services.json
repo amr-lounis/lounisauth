@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "86417472933",
+    "firebase_url": "https://lounisauth.firebaseio.com",
+    "project_id": "lounisauth",
+    "storage_bucket": "lounisauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86417472933:android:62d46750e9edec79bbbc4c",
+        "android_client_info": {
+          "package_name": "com.hackamro.lounisauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86417472933-ofpkr43khmsqemmiiuguc51hhfr37c38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0PfG4z-4cSJtGTdeTivIUaZTUwu84GlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86417472933-ofpkr43khmsqemmiiuguc51hhfr37c38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
