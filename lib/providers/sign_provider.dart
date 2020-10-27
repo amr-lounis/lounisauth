@@ -14,30 +14,28 @@ class SignProvider with ChangeNotifier {
     _boolProgressBar = false;
     notifyListeners();
   }
-  void signIn ({email,password})async {
+  Future<bool> signIn ({email,password})async {
     print("${email} ${password}");
+    UserCredential result;
     await progressBarOn();
-    try{
-      var result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-      print("ok");
-    }
-    catch(e){
-      print("error:---------------"+e.toString());
-    }
+    result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
     await progressBarOff();
+    print("log --------------  signIn");
     notifyListeners();
+    return (result != null);
   }
   void signUp ({email,password})async {
     print("${email} ${password}");
     await progressBarOn();
-    try{
-      var result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
-      print("ok");
-    }
-    catch(e){
-      print("error:---------------"+e.toString());
-    }
+    UserCredential result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+    print(result.user);
     await progressBarOff();
+    print("log --------------  signUp");
+    notifyListeners();
+  }
+  void signOut ()async {
+    await FirebaseAuth.instance.signOut();
+    print("log --------------   signOut");
     notifyListeners();
   }
 

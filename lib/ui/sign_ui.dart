@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'main_menu.dart';
+
 import '../widgets/progress_bar_widget.dart';
 import '../widgets/sign_In_widget.dart';
 import '../widgets/sign_up_widget.dart';
@@ -37,8 +39,14 @@ class MyHomePage extends StatelessWidget {
       child: Center(
           child:ListView(
             children: <Widget>[
-              SignInWidget( onSignIn:(email,password){
-                context.read<SignProvider>().signIn(email: email,password:password );
+              SignInWidget( onSignIn:(email,password) async {
+                bool b = await context.read<SignProvider>().signIn(email: email,password:password );
+                  if(b){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MainMenuPage() ));
+                  }
+                  else{
+                    print("error login");
+                  }
               }),
               SignUpWidget( onSignUp:(email,password){
                 context.read<SignProvider>().signUp(email: email,password:password );
