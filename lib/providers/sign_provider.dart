@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignProvider with ChangeNotifier {
@@ -14,10 +15,28 @@ class SignProvider with ChangeNotifier {
     notifyListeners();
   }
   void signIn ({email,password})async {
+    print("${email} ${password}");
     await progressBarOn();
-    await Future.delayed(const Duration(seconds: 2), () {
-      print("${email} ${password}");
-    });
+    try{
+      var result = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      print("ok");
+    }
+    catch(e){
+      print("error:---------------"+e.toString());
+    }
+    await progressBarOff();
+    notifyListeners();
+  }
+  void signUp ({email,password})async {
+    print("${email} ${password}");
+    await progressBarOn();
+    try{
+      var result = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      print("ok");
+    }
+    catch(e){
+      print("error:---------------"+e.toString());
+    }
     await progressBarOff();
     notifyListeners();
   }

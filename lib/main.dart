@@ -9,6 +9,6 @@ void main() {
           providers: [
             ChangeNotifierProvider(create: (_) => SignProvider()),
           ],
-          child: MaterialApp(home: MyHomePage())
+          child: MaterialApp(home: App())
       ));
 }
