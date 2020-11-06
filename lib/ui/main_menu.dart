@@ -19,7 +19,7 @@ class MainMenuPage extends StatelessWidget {
     color: Colors.blue,
     onPressed: () {
       context.read<SignProvider>().signOut();
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> MyHomePage() ));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyHomePage() ));
     }),]
     );
   }
